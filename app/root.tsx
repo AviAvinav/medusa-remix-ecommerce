@@ -8,6 +8,9 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 
+import { MedusaProvider, CartProvider } from 'medusa-react';
+import { MEDUSA_BACKEND_URL, queryClient } from './lib/config';
+
 import styles from './styles/app.css';
 
 export const links = () => {
@@ -16,7 +19,7 @@ export const links = () => {
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  title: 'New Remix App',
+  title: 'Remix Medusa Storefront',
   viewport: 'width=device-width,initial-scale=1',
 });
 
@@ -28,10 +31,17 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+        <MedusaProvider
+          queryClientProviderProps={{ client: queryClient }}
+          baseUrl={MEDUSA_BACKEND_URL}
+        >
+          <CartProvider>
+            <Outlet />
+            <ScrollRestoration />
+            <Scripts />
+            <LiveReload />
+          </CartProvider>
+        </MedusaProvider>
       </body>
     </html>
   );

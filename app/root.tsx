@@ -30,7 +30,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-black text-slate-400 overflow-x-hidden justify-center flex">
         <MedusaProvider
           queryClientProviderProps={{ client: queryClient }}
           baseUrl={MEDUSA_BACKEND_URL}

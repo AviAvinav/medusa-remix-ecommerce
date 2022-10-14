@@ -20,11 +20,11 @@ export default function Index() {
         <h1 className="text-[2.5rem] sm:text-5xl lg:text-6xl xl:text-8xl relative font-medium lg:leading-[1.15] xl:leading-[1.2]">
           {heroText.start_text}{' '}
           {heroText.mid_text.split(' ').map((text) => (
-            <span key={text} className="relative text-gray-50">
-              <>
+            <span key={text} className="text-gray-50">
+              <span className="relative">
                 {text}
                 <div className="h-1 bg-emerald-200 w-full absolute bottom-0 left-0 inline-block" />
-              </>{' '}
+              </span>{' '}
             </span>
           ))}
           {heroText.end_text}

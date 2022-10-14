@@ -1,6 +1,6 @@
 import { useParams } from '@remix-run/react';
 
-import { useCreateLineItem, useProducts } from 'medusa-react';
+import { useCart, useCreateLineItem, useProducts } from 'medusa-react';
 
 export default function ProductSlug() {
   const { slug } = useParams();
@@ -11,6 +11,19 @@ export default function ProductSlug() {
     },
     {}
   );
+  const { cart } = useCart();
+
+  const createLineItem = useCreateLineItem(cart?.id!);
+
+  const addItem = () => {
+    createLineItem.mutate(
+      {
+        variant_id: products?.slice(0, 1)[0].variants[0].id!,
+        quantity: 1,
+      },
+      { onSuccess: () => console.log('yay!') }
+    );
+  };
 
   if (isLoading) {
     return <div></div>; // you can use skeleton loader here instead.
@@ -29,7 +42,7 @@ export default function ProductSlug() {
           ) : (
             <button
               className="p-5 w-full bg-slate-400 bg-opacity-25 mt-10 cursor-pointer active:scale-95 transition ease-in-out duration-75"
-              // onClick={() => addItem()}
+              onClick={() => addItem()}
             >
               Add item
             </button>

@@ -1,6 +1,7 @@
 import { useLoaderData } from '@remix-run/react';
 
 import { getHomePageData, homePageDataType } from '~/models/home.server';
+import ProductCard from '~/components/productCard';
 
 export const loader = async () => {
   const homePageData = await getHomePageData();
@@ -22,12 +23,28 @@ export default function Index() {
             <>
               <span className="relative text-gray-50">
                 {text}
-                <div className="h-1 bg-emerald-200 w-full absolute bottom-0 left-0 xl:inline-block hidden" />
+                <div className="h-1 bg-emerald-200 w-full absolute bottom-0 left-0 inline-block" />
               </span>{' '}
             </>
           ))}
           {heroText.end_text}
         </h1>
+      </div>
+
+      <div className="flex flex-col items-center pt-40 pb-44">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl pb-10 text-white">
+          {smallHeading}
+        </h2>
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-x-6">
+          {products.map(({ attributes }) => (
+            <ProductCard
+              key={attributes.medusa_id}
+              image={attributes.thumbnail}
+              handle={attributes.handle}
+              title={attributes.title}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

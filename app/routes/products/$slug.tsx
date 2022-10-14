@@ -1,16 +1,9 @@
-import { useLoaderData } from '@remix-run/react';
+import { useParams } from '@remix-run/react';
 
-import type { LoaderFunction } from '@remix-run/node';
 import { useCreateLineItem, useProducts } from 'medusa-react';
 
-export const loader: LoaderFunction = async ({ params }) => {
-  const { slug } = params;
-
-  return slug;
-};
-
 export default function ProductSlug() {
-  const slug = useLoaderData<string>();
+  const { slug } = useParams();
 
   const { products, isLoading } = useProducts(
     {
@@ -18,8 +11,6 @@ export default function ProductSlug() {
     },
     {}
   );
-
-  //   const createLineItem = useCreateLineItem();
 
   if (isLoading) {
     return <div></div>; // you can use skeleton loader here instead.

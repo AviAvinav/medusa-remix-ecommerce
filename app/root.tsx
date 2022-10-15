@@ -10,7 +10,9 @@ import {
 
 import { MedusaProvider, CartProvider } from 'medusa-react';
 import { Toaster } from 'react-hot-toast';
+
 import OutletContainer from './components/outletContainer';
+import TopNavigator from './components/topNavigator';
 import { MEDUSA_BACKEND_URL, queryClient } from './lib/config';
 
 import styles from './styles/app.css';
@@ -39,6 +41,7 @@ export default function App() {
         >
           <CartProvider>
             <OutletContainer>
+              <TopNavigator />
               <Outlet />
             </OutletContainer>
             <ScrollRestoration />

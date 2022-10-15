@@ -37,10 +37,12 @@ export default function ProductSlug() {
 
   const product = products[0];
   return (
-    <div className="flex flex-col lg:justify-between lg:flex-row px-10 sm:px-20 md:px-44 pt-44 max-w-[100rem] flex-grow w-screen">
+    <div className="flex flex-col lg:justify-between lg:flex-row px-10 pb-44 sm:px-20 md:px-44 pt-44 max-w-[100rem] flex-grow w-screen">
       <img src={product.thumbnail!} className="h-96 w-auto" />
       <div>
-        <h1 className="text-4xl pb-10 text-white">{product.title}</h1>
+        <h1 className="text-4xl pt-5 lg:pt-0 pb-5 lg:pb-10 text-white">
+          {product.title}
+        </h1>
         <p className="w-72">{product.description}</p>
         {isLoading ? (
           <></>

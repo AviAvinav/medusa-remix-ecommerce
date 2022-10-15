@@ -1,4 +1,4 @@
-import { Cart, ProductVariant } from '@medusajs/medusa';
+import { ProductVariant } from '@medusajs/medusa';
 import { formatVariantPrice, useCart } from 'medusa-react';
 
 export const formatPrice = (variant: ProductVariant) => {

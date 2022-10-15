@@ -1,34 +1,38 @@
-# Welcome to Remix!
+# Medusa Remix Ecommerce
 
-- [Remix Docs](https://remix.run/docs)
+An Ecommerce Storefront built with Medusa, Strapi CMS & Remix
 
-## Deployment
+## Quickstart
 
-After having run the `create-remix` command and selected "Vercel" as a deployment target, you only need to [import your Git repository](https://vercel.com/new) into Vercel, and it will be deployed.
+To get started clone the repository:
 
-If you'd like to avoid using a Git repository, you can also deploy the directory by running [Vercel CLI](https://vercel.com/cli):
-
-```sh
-npm i -g vercel
-vercel
+```bash
+git clone https://github.com/aviavinav/medusa-remix-ecommerce
+cd medusa-remix-ecommerce
 ```
 
-It is generally recommended to use a Git repository, because future commits will then automatically be deployed by Vercel, through its [Git Integration](https://vercel.com/docs/concepts/git).
+Install the dependencies:
 
-## Development
-
-To run your Remix app locally, make sure your project's local dependencies are installed:
-
-```sh
-npm install
+```bash
+yarn install # or npm
 ```
 
-Afterwards, start the Remix development server like so:
+Start the development server:
 
-```sh
-npm run dev
+```bash
+yarn dev
 ```
 
-Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
+## Introduction
 
-If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
+Medusa is being used for managing the products and cart functionality. Strapi is used for managing the content that will be displayed on the storefront. Remix is used for building the UI for the storefront.
+
+## Features
+
+- It displays the products from Strapi
+- Has a dynamic page for product information
+- Add to Cart Functionality
+
+## Screenshots
+
+to be added

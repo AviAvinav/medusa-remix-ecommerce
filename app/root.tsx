@@ -9,6 +9,7 @@ import {
 } from '@remix-run/react';
 
 import { MedusaProvider, CartProvider } from 'medusa-react';
+import { Toaster } from 'react-hot-toast';
 import OutletContainer from './components/outletContainer';
 import { MEDUSA_BACKEND_URL, queryClient } from './lib/config';
 
@@ -43,6 +44,7 @@ export default function App() {
             <ScrollRestoration />
             <Scripts />
             <LiveReload />
+            <Toaster />
           </CartProvider>
         </MedusaProvider>
       </body>

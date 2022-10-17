@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { medusaClient } from "~/lib/config";
+import { useState, useEffect } from 'react';
+import { medusaClient } from '~/lib/config';
 
-import type { Cart as CartType } from "medusa-react/dist/types";
+import type { Cart as CartType } from 'medusa-react/dist/types';
 
 export default function Cart() {
   const [cart, setCart] = useState<CartType>();
 
   useEffect(() => {
     medusaClient.carts
-      .retrieve(localStorage.getItem("cart_id")!)
+      .retrieve(localStorage.getItem('cart_id')!)
       .then(({ cart }) => {
         setCart(cart);
       });

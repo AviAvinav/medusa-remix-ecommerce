@@ -1,8 +1,8 @@
-import { useParams } from '@remix-run/react';
+import { useParams } from "@remix-run/react";
 
-import { useCart, useCreateLineItem, useProducts } from 'medusa-react';
-import toast from 'react-hot-toast';
-import { formatPrice } from '~/lib/formatPrice';
+import { useCart, useCreateLineItem, useProducts } from "medusa-react";
+import toast from "react-hot-toast";
+import { formatPrice } from "~/lib/formatPrice";
 
 export default function ProductSlug() {
   const { slug } = useParams();
@@ -26,7 +26,7 @@ export default function ProductSlug() {
       },
       {
         onSuccess: () => {
-          toast('Added to Cart!');
+          toast("Added to Cart!");
         },
       }
     );
@@ -46,7 +46,7 @@ export default function ProductSlug() {
         </h1>
         <p className="w-72">{product.description}</p>
         <p className="text-xl text-white pt-5">
-          {formatPrice(product.variants[0])}
+          {formatPrice(product.variants[0], cart)}
         </p>
         <button
           className="p-5 rounded-md w-full bg-slate-400 bg-opacity-25 mt-10 cursor-pointer active:scale-95 transition ease-in-out duration-75"

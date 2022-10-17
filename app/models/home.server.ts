@@ -1,8 +1,12 @@
-import { StrapiProductData, StrapiResponseType } from '~/types/StrapiResponse';
+import { STRAPI_API_URL } from '~/lib/config';
+import type {
+  StrapiProductData,
+  StrapiResponseType,
+} from '~/types/StrapiResponse';
 
 export const getHomePageData = async () => {
   const homePage: StrapiResponseType = await (
-    await fetch('http://localhost:1337/api/home-page?populate=*')
+    await fetch(`${STRAPI_API_URL}/home-page?populate=*`)
   ).json();
 
   const { data } = homePage;

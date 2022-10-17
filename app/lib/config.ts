@@ -1,11 +1,9 @@
 import Medusa from '@medusajs/medusa-js';
 import { QueryClient } from 'react-query';
 
-let MEDUSA_BACKEND_URL = 'http://localhost:9000';
+const MEDUSA_BACKEND_URL = 'http://localhost:9000';
 
-// if (process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL) {
-//   MEDUSA_BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL;
-// }
+const STRAPI_API_URL = 'http://localhost:1337/api';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,4 +17,4 @@ const queryClient = new QueryClient({
 
 const medusaClient = new Medusa({ baseUrl: MEDUSA_BACKEND_URL, maxRetries: 3 });
 
-export { MEDUSA_BACKEND_URL, queryClient, medusaClient };
+export { MEDUSA_BACKEND_URL, STRAPI_API_URL, queryClient, medusaClient };

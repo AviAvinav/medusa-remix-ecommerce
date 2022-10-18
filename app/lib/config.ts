@@ -3,7 +3,7 @@ import { QueryClient } from 'react-query';
 
 const MEDUSA_BACKEND_URL = 'http://localhost:9000';
 
-const STRAPI_API_URL = 'http://localhost:1337/api';
+const STRAPI_API_URL = 'http://127.0.0.1:1337/api';
 
 const queryClient = new QueryClient({
   defaultOptions: {
